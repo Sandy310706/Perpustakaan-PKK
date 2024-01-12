@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ngomong apa cong</h1>
+    <h1>Ngomong apa kacong</h1>
 </body>
 </html>

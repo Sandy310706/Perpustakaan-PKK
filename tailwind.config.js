@@ -2,7 +2,12 @@
 export default {
     content: ["./resources/**/*.blade.php"],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                montserrat: ["Montserrat Alternates", "sans-serif"],
+                nunitosans: ["Nunito Sans", "sans-serif"],
+            },
+        },
     },
     plugins: [],
 };

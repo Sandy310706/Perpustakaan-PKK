@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('halamanjudul');
 });
+Route::get('/detail', function () {
+    return view('detail');
+});
+Route::get('/detail1', function () {
+    return view('detail1');
+});
+Route::get('/detail2', function () {
+    return view('detail2');
+});

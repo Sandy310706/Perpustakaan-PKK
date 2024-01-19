@@ -2,7 +2,11 @@
 export default {
     content: ["./resources/**/*.blade.php"],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                outfit: ["Outfit", "sans-serif"],
+            },
+        },
     },
     plugins: [],
 };

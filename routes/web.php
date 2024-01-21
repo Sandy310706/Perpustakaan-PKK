@@ -25,3 +25,6 @@ Route::get('/detail1', function () {
 Route::get('/detail2', function () {
     return view('detail2');
 });
+Route::get('/history', function () {
+    return view('history');
+});

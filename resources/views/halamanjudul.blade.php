@@ -6,7 +6,7 @@
   @vite('resources/css/app.css')
 </head>
 <body>
-  <div class="">
+  <div class="w-screen flex">
   <div class="w-full flex items-center justify-center">
             <a>A</a>
             <a>B</a>
@@ -23,7 +23,7 @@
             <a>M</a>
             <a>N</a>
             <a>O</a>
-    <div class="w-full flex items-center justify-center">
+    <div class="w-full ">
             <a>P</a>
             <a>Q</a>
             <a>R</a>

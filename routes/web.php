@@ -14,7 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.layouts.app');
+});
+Route::get('/detail', function () {
+    return view('user.detailbuku');
+});
+Route::get('/detail1', function () {
+    return view('detail1');
+});
+Route::get('/detail2', function () {
+    return view('detail2');
 });
 Route::get('login', function(){
     return view('auth.login');

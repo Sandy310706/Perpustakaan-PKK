@@ -15,6 +15,7 @@
 <body class="overflow-x-hidden h-screen">
     <div class="w-full h-full">
         @include('user.layouts.navbar')
+        @yield('halamanjudul')
     </div>
 </body>
 </html>

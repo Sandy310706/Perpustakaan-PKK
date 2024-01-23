@@ -19,12 +19,12 @@ Route::get('/', function () {
 Route::get('/detail', function () {
     return view('user.detailbuku');
 });
-Route::get('/detail1', function () {
-    return view('detail1');
-});
-Route::get('/detail2', function () {
-    return view('detail2');
-});
 Route::get('login', function(){
     return view('auth.login');
+});
+Route::get('/history', function () {
+    return view('history');
+});
+Route::get('/hal', function () {
+    return view('user/halamanjudul');
 });

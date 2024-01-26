@@ -25,6 +25,7 @@ Route::get('login', function(){
 Route::get('/history', function () {
     return view('history');
 });
-Route::get('/hal', function () {
-    return view('user/halamanjudul');
+
+Route::get('/dashboard', function () {
+    return view('admin.layouts.app');
 });

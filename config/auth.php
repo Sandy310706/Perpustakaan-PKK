@@ -36,6 +36,14 @@ return [
     */
 
     'guards' => [
+        'web_siswa' => [
+            'driver' => 'session',
+            'provider' => 'siswa',
+        ],
+        'web_petugas' => [
+            'driver' => 'session',
+            'provider' => 'petugas',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -63,6 +71,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'siswa' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Siswa::class,
+        ],
+        'petugas' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Petugas::class,
         ],
 
         // 'users' => [

@@ -23,3 +23,11 @@ Route::get('dashboard', function(){
 })->name('admin.dashboard');
 Route::get('login', [AuthController::class, 'login'])->name('Login');
 Route::post('login', [AuthController::class, 'prosesLogin'])->name('ProsesLogin');
+Route::get('/detail', function () {
+    return view('user.detailbuku');
+Route::get('/history', function () {
+    return view('history');
+});
+Route::get('/dashboard', function () {
+    return view('admin.layouts.dashboard');
+});

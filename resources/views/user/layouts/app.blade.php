@@ -17,6 +17,7 @@
     <div class="w-full h-full">
         @include('user.layouts.navbar')
         @yield('detailbuku')
+        @yield('halamanjudul')
     </div>
 </body>
 </html>

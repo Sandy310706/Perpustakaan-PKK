@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="w-[50%] h-screen flex ml-10 justify-center items-center">
-            <div class="w-[70%] bg-white rounded-2xl border-2 border-stone-500 shadow-2xl py-4 animate-showLogin">
+            <div class="w-[70%] bg-white rounded-2xl border-2 border-stone-500 shadow-2xl py-4">
                 <h1 class="text-center mb-8 text-4xl font-montserrat">L o g i n</h1>
                 <form action="{{ route('ProsesLogin') }}" class="px-4 w-full flex flex-col items-center justify-center" method="POST">
                     @csrf
@@ -17,7 +17,7 @@
                         <label for="primaryKey" class="after:content-['*'] after:ml-0.5 after:text-red-500">NISN atau Email</label>
                         <div class="w-full flex border-[1.5px] border-zinc-500 rounded-lg py-2 px-1">
                             <span class="mx-2 scale-125"><i class="fa-regular fa-at"></i></span>
-                            <input id="primaryKey" type="text" name="primaryKey" class="outline-none w-full h-full placeholder:font-nunitosans placeholder:text-md" placeholder="Masukan NISN atau Email">
+                            <input id="primaryKey" type="text" name="primaryKey" value="{{ old('primaryKey') }}" class="outline-none w-full h-full placeholder:font-nunitosans placeholder:text-md" placeholder="Masukan NISN atau Email">
                         </div>
                         @error('primaryKey')
                             <div class="text-xs text-red-400 pl-2"><i class="fa-solid fa-triangle-exclamation pr-1"></i>{{ $message }}</div>

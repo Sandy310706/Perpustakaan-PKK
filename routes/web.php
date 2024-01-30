@@ -18,14 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.layouts.app');
 });
-Route::get('/detail', function () {
-    return view('user.detailbuku');
-});
-Route::get('/detail1', function () {
-    return view('detail');
-});
 Route::get('dashboard', function(){
     return view('admin.layouts.app');
-});
+})->name('admin.dashboard');
 Route::get('login', [AuthController::class, 'login'])->name('Login');
 Route::post('login', [AuthController::class, 'prosesLogin'])->name('ProsesLogin');

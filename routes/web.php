@@ -27,5 +27,5 @@ Route::get('/history', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.layouts.app');
+    return view('admin.layouts.dashboard');
 });

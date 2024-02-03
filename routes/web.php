@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('user.layouts.app');
+    return view('user.landingpage');
 });
 Route::get('dashboard', function(){
     return view('admin.layouts.app');
@@ -25,6 +25,7 @@ Route::get('login', [AuthController::class, 'login'])->name('Login');
 Route::post('login', [AuthController::class, 'prosesLogin'])->name('ProsesLogin');
 Route::get('/detail', function () {
     return view('user.detailbuku');
+});
 Route::get('/history', function () {
     return view('history');
 });

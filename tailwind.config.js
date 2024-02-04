@@ -9,6 +9,7 @@ export default {
                 outfit: ["Outfit", "sans-serif"],
                 robotoslab: ["Roboto Slab", "serif"],
                 worksans: ["Work Sans", "sans-serif"],
+                paythone: ["Paytone One", "sans-serif"]
             },
             keyframes: {
                 showLogin: {

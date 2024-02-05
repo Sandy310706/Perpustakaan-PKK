@@ -7,9 +7,25 @@
         <div class="hidden w-screen h-screen bg-black bg-opacity-60 absolute top-0 right-0" style="z-index: 900;" id="background">
         </div>
         <div class="w-full flex justify-center">
-            {{-- <div id="detail" class="bg-white absolute top-8 p-4 w-[70%] rounded-lg drop-shadow-2xl" style="z-index: 1000;">
-                Satu
-            </div> --}}
+            <div id="detail" class="hidden bg-white max-h-96 absolute top-8 p-4 w-[70%] rounded-lg drop-shadow-2xl" style="z-index: 1000;">
+                <button id="closeModal" onclick="closeDetail()" class="absolute top-0 right-0 p-2 m-2 text-gray-700 hover:text-red-500 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="w-[40%] max-h-96 mr-5">
+                    <img src="{{ asset('img/mountain.jpg') }}" alt="foto cover buku" class="">
+                </div>
+                <div class="w-[50%] flex flex-col">
+                    <div class="text-sm">Kode Buku : <span class="text-slate-300" id="spanKode"></span></div>
+                    <div class="text-2xl mr-2" id="h1Judul"></div>
+                    <div class="text-slate-400" id="spanPenulis"></div>
+                    <div class="mb-6">
+                        <span class="text-sm text-green-600 bg-green-300 px-2 rounded-lg">Status</span>
+                    </div>
+                    <p class="w-full" id="pDeskripsi"></p>
+                </div>
+            </div>
             <div id="modal" class="hidden w-[70%] p-4 absolute top-8 bg-white rounded-lg drop-shadow-2xl" style="z-index: 1000;">
                 <button id="closeModal" onclick="closeModal()" class="absolute top-0 right-0 p-2 m-2 text-gray-700 hover:text-red-500 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -70,8 +86,8 @@
                     <td class="rounded-tl-xl p-4 w-[10%]">Kode Buku</td>
                     <td class="w-[30%]">Judul Buku</td>
                     <td class="w-[30%]">Penulis</td>
-                    <td class="w-[15%]">Stok</td>
-                    <td class="rounded-tr-xl w-[15%]">Aksi</td>
+                    <td class="w-[10%]">Stok</td>
+                    <td class="rounded-tr-xl w-[20%]">Aksi</td>
                 </thead>
                 <tbody id="tbody" class="text-sm font-light text-gray-500">
                 </tbody>
@@ -93,12 +109,12 @@
                     const tbody = $('#tbody')
                     tbody.empty()
                     $.each(data, function (index, item) {
-                        var row = "<tr class='border-b border-slate-200'>" +
+                        var row = "<tr class='border-b border-slate-200' data-item-id='" + item.id + "'>" +
                             "<td class='p-4 text-black'>" + item.kodebuku + '</td>' +
                             "<td>" + item.judul + '</td>' +
                             "<td>" + item.penulis + '</td>' +
                             "<td>" + item.stok + '</td>' +
-                            "<td><a href='javascript:void(0)' data-id='" + item.id + "' class='text-blue-600'>Detail</a></td>";
+                            "<td><a href='javascript:void(0)' data-id='" + item.id + "' class='detail text-blue-600 mr-2'>Detail</a><a href='javascript:void(0)' data-id='" + item.id + "' class='edit text-yellow-600 mr-2'>Edit</a><a href='javascript:void(0)' data-id='" + item.id + "' class='hapus text-red-600'>Hapus</a></td>";
                             '</tr>';
                         tbody.append(row);
                     });
@@ -142,12 +158,12 @@
                                     $('#newData').trigger("reset")
                                     $('#modal').addClass('animate-hideModal')
                                     $('#modal').removeClass('animate-showModal')
-                                    var newRow = "<tr class='border-b border-slate-200'>" +
+                                    var newRow = "<tr class='border-b border-slate-200' data-item-id='" + data.success.id + "'>" +
                                     '<td class="p-4 text-black">' + data.success.kodebuku + '</td>' +
                                     '<td>' + data.success.judul + '</td>' +
                                     '<td>' + data.success.penulis + '</td>' +
                                     '<td>' + data.success.stok + '</td>' +
-                                    "<td><a href='javascript:void(0)' data-id='" + data.success.id + "' class='text-blue-600'>Detail</a></td>" +
+                                    "<td><a href='javascript:void(0)' data-id='" + data.success.id + "' class='detail text-blue-600 mr-2'>Detail</a><a href='javascript:void(0)' data-id='" + data.success.id + "' class='edit text-yellow-600 mr-2'>Edit</a><a href='javascript:void(0)' data-id='" + data.success.id + "' class='hapus text-red-600'>Hapus</a></td>" +
                                     '</tr>';
                                     $("tbody").append(newRow)
                                     $("#newData")[0].reset();
@@ -174,12 +190,120 @@
                     })
                 })
             })
-            $(document).on('invalid-form.validate', '#newData', function () {
-                return false;
-            });
+            $('body').on('click', '.detail', function(e){
+                e.preventDefault()
+                let id = $(this).data('id')
+                $.get("/detail-buku/"+id, function(data){
+                    $('#detail').removeClass('hidden')
+                    $('#background').removeClass('hidden')
+                    $('#detail').addClass('animate-showModal')
+                    $('#detail').addClass('flex')
+                    $('#id').html(data.id)
+                    $('#spanKode').html(data.kodebuku)
+                    $('#h1Judul').html(data.judul)
+                    $('#spanPenulis').html(data.penulis)
+                    $('#pDeskripsi').html(data.deskripsi)
+                })
+            })
+            $('body').on('click', '.edit', function(e){
+                e.preventDefault()
+                let id = $(this).data('id')
+                $.get("/detail-buku/"+id, function(data){
+                    $('#modal').removeClass('hidden')
+                    $('#background').removeClass('hidden')
+                    $('#modal').addClass('animate-showModal')
+                    $('#titleModal').html('Edit Data ' + data.judul)
+                    $('#kode').val(data.kodebuku)
+                    $('#penulis').val(data.penulis)
+                    $('#judul').val(data.judul)
+                    $('#deskripsi').val(data.deskripsi)
+                    $('#stok').val(data.stok)
+                    $('#saveBtn').click( function(e) {
+                        e.preventDefault()
+                        $(this).html('Mengubah...')
+                        let form = new FormData(document.getElementById('newData'))
+                        $.ajax({
+                            type: "POST",
+                            url: "/update-buku/"+id,
+                            data: form,
+                            processData: false,
+                            contentType: false,
+                            success: function(response)
+                            {
+                                console.log(response);
+                                Swal.fire({
+                                    title: 'Berhasil',
+                                    text: 'Data Buku berhasil diedit!',
+                                    icon: 'success',
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'OK',
+                                    zIndex: 9999,
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        setTimeout(() => {
+                                            $('#modal').addClass('hidden')
+                                            $('#background').addClass('hidden')
+                                        }, 900);
+                                        $('#newData').trigger("reset")
+                                        $('#modal').addClass('animate-hideModal')
+                                        $('#modal').removeClass('animate-showModal')
+                                        var updatedRow = $("tbody tr[data-item-id='" + response.id + "']")
+                                        updatedRow.find('td:eq(0)').text(response.kodebuku)
+                                        updatedRow.find('td:eq(1)').text(response.judul)
+                                        updatedRow.find('td:eq(2)').text(response.penulis)
+                                        updatedRow.find('td:eq(3)').text(response.stok)
+                                        $('#saveBtn').html('Simpan')
+                                        $("#newData")[0].reset();
+                                    }
+                                })
+                            },
+                            error: function(xhr){
+                                console.log(xhr)
+                            }
+                        })
+                    })
+                })
+            })
+            $('body').on('click', '.hapus', function(e){
+                e.preventDefault()
+                var id = $(this).data("id");
+                var rowToRemove = $("tbody tr[data-item-id='" + id + "']");
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah Anda yakin ingin menghapus buku ini?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Hapus',
+                    cancelButtonText: 'Batal',
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                }).then((result) => {
+                    if(result.isConfirmed){
+                        $.ajax({
+                            type: 'DELETE',
+                            url: '/hapus-buku/'+id,
+                            success: function(response)
+                            {
+                                Swal.fire('Dihapus!', 'Buku berhasil dihapus.', 'success');
+                                rowToRemove.remove();
+                            }
+                        })
+                    }
+                })
+            })
         })
         function closeModal() {
             const modal = document.getElementById("modal");
+            const background = document.getElementById("background");
+            setTimeout(() => {
+                modal.classList.add("hidden");
+                background.classList.add('hidden');
+            }, 900);
+            modal.classList.remove("animate-showModal");
+            modal.classList.add("animate-hideModal");
+        }
+        function closeDetail() {
+            const modal = document.getElementById("detail");
             const background = document.getElementById("background");
             setTimeout(() => {
                 modal.classList.add("hidden");

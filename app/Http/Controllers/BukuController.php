@@ -18,7 +18,7 @@ class BukuController extends Controller
     {
         $dataValidasi = Validator::make($request->all(), [
             'kode' => 'required|numeric',
-            'judul' => 'required|string|max:100',
+            'judul' => 'required|max:100',
             'deskripsi' => 'required',
             'penulis' => 'required|max:100',
             'stok' => 'required|numeric',
@@ -32,7 +32,6 @@ class BukuController extends Controller
             'stok.required' => 'Stok Buku harus diisi.',
             'img.required' => 'Gambar tidak boleh kosong.',
             'kode.numeric' => 'Wajib angka.',
-            'judul.string' => 'Wajib huruf.',
             'stok.numeric' => 'Wajib angka.',
             'judul.max' => 'Maksimal 100 digit.',
             'penulis.max' => 'Maksimal 100 digit.',
@@ -58,5 +57,35 @@ class BukuController extends Controller
             $newData->save();
             return response()->json(['success' => $newData]);
         }
+    }
+    public function update(Request $request, $id)
+    {
+        $data = Buku::find($id);
+        $data->kodebuku = $request->kode;
+        $data->judul = $request->judul;
+        $data->penulis = $request->penulis;
+        $data->stok = $request->stok;
+        $data->deskripsi = $request->deskripsi;
+        if($request->hasFile('img')){
+            $fileFoto = $request->file('img');
+            $newName = uniqid().$fileFoto->getClientOriginalName();
+            $path = 'FotoCoverBuku/'.$newName;
+            Storage::disk('public')->put($path, file_get_contents($fileFoto));
+            $data->foto = $newName;
+        }
+        $data->save();
+        return response()->json($data);
+    }
+    public function detail($id)
+    {
+        $detail = Buku::find($id);
+        return response()->json($detail);
+    }
+    public function hapus($id)
+    {
+        $data = Buku::find($id);
+        Storage::delete('FotoCoverBuku/'.$data->foto);
+        $data->delete();
+        return response()->json(['success'=>true]);
     }
 }

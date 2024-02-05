@@ -25,7 +25,10 @@ Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboar
 Route::get('pinjaman-siswa', [AdminController::class, 'pinjamansiswa'])->name('admin.pinjamansiswa');
 Route::get('kelola-buku', [AdminController::class, 'kelolabuku'])->name('KelolaBuku');
 Route::get('data-buku', [BukuController::class, 'index'])->name('Buku');
+Route::get('detail-buku/{id}', [BukuController::class, 'detail'])->name('DetailBuku');
 Route::post('tambah-buku', [BukuController::class, 'store'])->name('TambahBuku');
+Route::post('update-buku/{id}', [BukuController::class, 'update'])->name('UpdateBuku');
+Route::delete('hapus-buku/{id}', [BukuController::class, 'hapus'])->name('HapusBuku');
 Route::get('login', [AuthController::class, 'login'])->name('Login');
 Route::post('login', [AuthController::class, 'prosesLogin'])->name('ProsesLogin');
 Route::get('/detail', function () {

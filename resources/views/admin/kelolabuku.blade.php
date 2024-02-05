@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title', 'Kelola Buku')
-@section('titleDashboard', 'Kelola Buku')
+@section('titleNav', 'Kelola Buku')
 
 @section('kelolabuku')
     <div class="w-full h-full flex flex-col">
@@ -167,12 +167,12 @@
                                     '</tr>';
                                     $("tbody").append(newRow)
                                     $("#newData")[0].reset();
+                                    $('#saveBtn').html('Simpan')
                                 }
                             })
                         },
                         error : function(error) {
                             let pesanError = error.responseJSON.errors
-                            console.log(error)
                             $('#errorKode').removeClass('hidden')
                             $('#errorKode').html(pesanError.kode)
                             $('#errorPenulis').removeClass('hidden')

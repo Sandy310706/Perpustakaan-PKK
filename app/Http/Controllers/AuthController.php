@@ -34,15 +34,20 @@ class AuthController extends Controller
         }elseif(!User::where('nisn', $request->primaryKey)->first()){
             return redirect()->back()->withErrors(['primaryKey' => 'NISN tidak ditemukan'])->withInput();
         }
-        if(filter_var($request->primaryKey, FILTER_VALIDATE_EMAIL)){
-            Auth::attempt($request->only('email', 'password'));
-            $request->session()->regenerate();
-            return redirect()->route('admin.dashboard');
-        }elseif(Auth::attempt($request->only('nisn', 'password'))){
-            $request->session()->regenerate();
-            return redirect('/');
-        }else{
-            return redirect()->back()->withErrors(['password' => 'Password salah'])->withInput();
+        if (filter_var($request->primaryKey, FILTER_VALIDATE_EMAIL)) {
+            if (Auth::attempt(['email' => $request->primaryKey, 'password' => $request->password])) {
+                $request->session()->regenerate();
+                return redirect()->route('admin.dashboard');
+            } else {
+                return redirect()->back()->withErrors(['password' => 'Password salah'])->withInput();
+            }
+        } else {
+            if (Auth::attempt(['nisn' => $request->primaryKey, 'password' => $request->password])) {
+                $request->session()->regenerate();
+                return redirect('/');
+            } else {
+                return redirect()->back()->withErrors(['password' => 'Password salah'])->withInput();
+            }
         }
     }
     public function logout(Request $request)

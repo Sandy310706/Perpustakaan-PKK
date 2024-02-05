@@ -4,16 +4,25 @@
         <span class="text-white mt-7">Halaman Admin</span>
     </div>
     <hr class="w-[90%] border border-white my-5">
+    <a href="/" class="block cursor-pointer w-[90%] mb-2 text-center p-1 rounded-md hover:bg-white hover:text-black">
+        Beranda
+    </a>
     <a href="{{ route('admin.dashboard') }}" class="block cursor-pointer w-[90%] mb-2 text-center p-1 rounded-md hover:bg-white hover:text-black {{ request()->is('dashboard') ? 'text-yellow-500' : '' }}">
         Dashboard
     </a>
     <a href="{{ route('KelolaBuku') }}" class="block cursor-pointer w-[90%] mb-2 text-center p-1 rounded-md hover:bg-white hover:text-black {{ request()->is('kelola-buku') ? 'text-yellow-500' : '' }}">
         Kelola Buku
     </a>
+    <a href="{{ route('KelolaUser') }}" class="block cursor-pointer w-[90%] mb-2 text-center p-1 rounded-md hover:bg-white hover:text-black {{ request()->is('kelola-user') ? 'text-yellow-500' : '' }}">
+        Kelola User
+    </a>
     <a class="block cursor-pointer w-[90%] mb-2 text-center p-1 rounded-md hover:bg-white hover:text-black">
         Pinjaman Siswa
     </a>
-    <a class="block cursor-pointer w-[90%] text-center p-1 rounded-md hover:bg-white hover:text-black justify-self-end">
-        Logout
-    </a>
+    <form action="/logout" method="post" class="w-[90%]">
+        @csrf
+        <button type="submit" class="w-full cursor-pointer text-center p-1 rounded-md hover:bg-white hover:text-black justify-self-end">
+            Logout
+        </button>
+    </form>
 </div>

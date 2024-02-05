@@ -1,4 +1,4 @@
-<div class="w-screen p-4 flex bg-slate-100 shadow-sm">
+<div class="w-screen p-4 flex bg-slate-100 shadow-sm animate__animated animate__backInDown">
     <div class="w-[25%] h-full flex items-center">
         <img src="{{ asset('img/ikon.jpg') }}" class="h-14 w-14 mr-2" alt="navabar icon">
         <span class="font-robotoslab">Perpustakaan</span>

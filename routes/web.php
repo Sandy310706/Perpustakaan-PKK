@@ -19,7 +19,7 @@ Route::get('/test', function(){
     return dd(auth());
 });
 Route::get('/', function () {
-    return view('user.layouts.app');
+    return view('user.landingpage');
 });
 Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('pinjaman-siswa', [AdminController::class, 'pinjamansiswa'])->name('admin.pinjamansiswa');

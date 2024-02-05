@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BukuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,20 +15,22 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/test', function(){
+    return dd(auth());
+});
 Route::get('/', function () {
     return view('user.layouts.app');
 });
-Route::get('dashboard', function(){
-    return view('admin.layouts.app');
-})->name('admin.dashboard');
+Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::get('pinjaman-siswa', [AdminController::class, 'pinjamansiswa'])->name('admin.pinjamansiswa');
+Route::get('kelola-buku', [AdminController::class, 'kelolabuku'])->name('KelolaBuku');
+Route::get('data-buku', [BukuController::class, 'index'])->name('Buku');
+Route::post('tambah-buku', [BukuController::class, 'store'])->name('TambahBuku');
 Route::get('login', [AuthController::class, 'login'])->name('Login');
 Route::post('login', [AuthController::class, 'prosesLogin'])->name('ProsesLogin');
 Route::get('/detail', function () {
     return view('user.detailbuku');
+});
 Route::get('/history', function () {
     return view('history');
-});
-Route::get('/dashboard', function () {
-    return view('admin.layouts.dashboard');
 });

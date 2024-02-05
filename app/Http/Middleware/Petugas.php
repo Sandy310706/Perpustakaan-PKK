@@ -16,7 +16,7 @@ class Petugas
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 'pwtugas'){
+        if(Auth::user()->role == 'petugas'){
             return $next($request);
         }else{
             return redirect()->back()->withErrors(['block' => 'Anda tidak dapat mengakses halaman ini !']);

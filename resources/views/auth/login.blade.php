@@ -17,7 +17,7 @@
                         <label for="primaryKey" class="after:content-['*'] after:ml-0.5 after:text-red-500">NISN atau Email</label>
                         <div class="w-full flex border-[1.5px] border-zinc-500 rounded-lg py-2 px-1">
                             <span class="mx-2 scale-125"><i class="fa-regular fa-at"></i></span>
-                            <input id="primaryKey" type="text" name="primaryKey" value="{{ old('primaryKey') }}" class="outline-none w-full h-full placeholder:font-nunitosans placeholder:text-md" placeholder="Masukan NISN atau Email">
+                            <input id="primaryKey" type="text" name="primaryKey" value="{{ old('primaryKey') }}" class="outline-none w-full h-full placeholder:font-nunitosans placeholder:text-md focus:bg-white" placeholder="Masukan NISN atau Email">
                         </div>
                         @error('primaryKey')
                             <div class="text-xs text-red-400 pl-2"><i class="fa-solid fa-triangle-exclamation pr-1"></i>{{ $message }}</div>

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('name', 'nama');
-            $table->string('nisn')->unique()->nullable()->after('nama');
+            $table->string('nisn')->unique()->nullable()->after('name');
             $table->string('email')->nullable()->change();
             $table->enum('role', ['siswa', 'admin'])->after('password');
         });

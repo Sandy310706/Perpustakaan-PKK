@@ -16,6 +16,9 @@
     @vite('resources/css/app.css')
 </head>
 <body class="overflow-x-hidden h-screen">
+    @error('error')
+        <P>{{ $message }}</P>
+    @enderror
     <div class="w-full h-full">
         @include('user.layouts.navbar')
         @yield('detailbuku')

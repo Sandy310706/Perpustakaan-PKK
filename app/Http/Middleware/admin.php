@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Petugas
+class admin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class Petugas
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->role == 'petugas'){
+        if(Auth::user()->role == 'admin'){
             return $next($request);
         }else{
-            return redirect()->back()->withErrors(['block' => 'Anda tidak dapat mengakses halaman ini !']);
+            return redirect()->back()->withErrors(['error' => 'Anda tidak dapat mengakses  halaman ini!']);
         }
     }
 }

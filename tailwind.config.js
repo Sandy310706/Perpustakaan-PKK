@@ -12,8 +12,11 @@ export default {
                 paythone: ["Paytone One", "sans-serif"]
             },
             keyframes: {
-                showLogin: {
-                    from: { transform: "translateX(100%)", overflow: "hidden" },
+                showModal: {
+                    from: { top: "-100%" },
+                },
+                hideModal: {
+                    to: { top: "-100%" },
                 },
                 showImg: {
                     from: { transform: "translateX(-100%)" },
@@ -32,7 +35,8 @@ export default {
                 },
             },
             animation: {
-                showLogin: "showLogin 1s forwards",
+                showModal: "showModal 1s ease-in-out",
+                hideModal: "hideModal 1s ease-in-out",
                 loginAsset: "showImg 1s forwards",
                 showDropdownMenu: "showDropdownMenu 0.6s ease-in-out",
                 hideDropdownMenu: "hideDropdownMenu 0.6s ease-in-out",

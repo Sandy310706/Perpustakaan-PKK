@@ -20,6 +20,7 @@ class AdminController extends Controller
     }
     public function kelolabuku()
     {
-        return view('admin.kelolabuku');
+        $jumlah = Buku::count();
+        return view('admin.kelolabuku', compact('jumlah'));
     }
 }

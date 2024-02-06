@@ -27,35 +27,40 @@
                     </svg>
                 </button>
                 <h1 id="titleModal" class="text-2xl mb-6"></h1>
-                <form id="formUser" class="w-full">
-                    <div class="w-[80%] flex flex-col mb-2">
-                        <label for="primarykey">Email atau NISN</label>
-                        <input type="text" name="primarykey" id="primarykey" placeholder="Masukan Email atau NISN Buku" class="p-2 border-2 rounded-md border-[#AFABAB] outline-none">
-                        <span id="errorPrimarykey" class="text-xs hidden text-red-500 ml-1"></span>
-                    </div>
-                    <div class="w-[80%] flex flex-col mb-2">
-                        <label for="nama">Nama</label>
-                        <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="p-2 border-2 rounded-md border-[#AFABAB] outline-none">
-                        <span id="errorNama" class="text-xs hidden text-red-500 ml-1"></span>
-                    </div>
-                    <div class="w-[80%] flex justify-between">
-                        <div class="w-[48%] flex flex-col mb-2">
+                <div class="w-full flex justify-center">
+                    <form id="formUser" class="w-full">
+                        <div class="w-[80%] flex flex-col mb-2">
+                            <label for="primarykey">Email atau NISN</label>
+                            <input type="text" name="primarykey" id="primarykey" placeholder="Masukan Email atau NISN" class="p-2 border-2 rounded-md border-[#AFABAB] outline-none">
+                            <span id="errorPrimarykey" class="text-xs hidden text-red-500 ml-1"></span>
+                        </div>
+                        <div class="w-[80%] flex flex-col mb-2">
+                            <label for="nama">Nama</label>
+                            <input type="text" name="nama" id="nama" placeholder="Masukan Nama" class="p-2 border-2 rounded-md border-[#AFABAB] outline-none">
+                            <span id="errorNama" class="text-xs hidden text-red-500 ml-1"></span>
+                        </div>
+                        <div class="w-[80%] flex flex-col mb-2">
                             <label for="password">Password</label>
                             <div class="w-full flex p-2 border-2 rounded-md border-[#AFABAB] outline-none">
-                                <input id="password" type="password" name="password" class="outline-none w-full h-full placeholder:font-nunitosans placeholder:text-md" placeholder="Masukan Password">
+                                <input id="password" type="password" name="password" class="outline-none w-full h-full placeholder:font-outfit placeholder:text-md" placeholder="Masukan Password">
                                 <span onclick="change()" id="passwordtoggle" class="mr-2"><i class="fa-regular fa-eye"></i></span>
                             </div>
                             <span id="errorPassword" class="text-xs hidden text-red-500 ml-1"></span>
                         </div>
-                        <div class="w-[48%] flex flex-col mb-2">
+                        <div class="w-[80%] flex flex-col mb-2">
                             <label for="role">Role</label>
                             <select name="role" id="role" placeholder="Pilih Role" class="p-2 border-2 rounded-md border-[#AFABAB] outline-none">
-                            <option value="siswa">Siswa</option>
-                            <option value="admin">Admin</option>
+                                <option value="siswa">Siswa</option>
+                                <option value="admin">Admin</option>
+                            </select>
                             <span id="errorRole" class="text-xs hidden text-red-500 ml-1"></span>
                         </div>
-                    </div>
-                </form>
+                        <div class="w-full flex justify-end">
+                            <button class="bg-slate-400 rounded-md py-1 px-4 text-white mr-2">Tutup</button>
+                            <button class="bg-sky-400 rounded-md py-1 px-4 text-white">Simpan</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -79,7 +84,7 @@
                             "<td>" + item.email + '</td>' +
                             "<td>" + item.nama + '</td>' +
                             "<td>" + item.role + '</td>' +
-                            "<td><a href='javascript:void(0)' data-id='" + item.id + "' class='detail text-blue-600 mr-2'>Detail</a><a href='javascript:void(0)' data-id='" + item.id + "' class='edit text-yellow-600 mr-2'>Edit</a><a href='javascript:void(0)' data-id='" + item.id + "' class='hapus text-red-600'>Hapus</a></td>";
+                            "<td><a href='javascript:void(0)' data-id='" + item.id + "' class='edit text-yellow-600 mr-2'>Edit</a><a href='javascript:void(0)' data-id='" + item.id + "' class='hapus text-red-600'>Hapus</a></td>";
                             '</tr>';
                         tbody.append(row);
                     });

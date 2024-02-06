@@ -35,6 +35,13 @@
                 <div class="w-1/2">@yield('titleNav')</div>
                 <div class="w-1/2 text-end">Selamat Datang,  {{ auth()->user()->nama }}</div>
             </nav>
+            <div class="w-full flex justify-center">
+                 <div class="hidden bg-red-800 justify-center w-[30%] absolute top-10 border rounded-xl">
+                    <div class="flex p-2">
+                        <p class="font-robotoslab text-white">Isi Sorang yaaa</p>
+                    </div>
+                 </div>
+            </div>
             @yield('dashboard')
             @yield('pinjamansiswa')
             @yield('kelolabuku')

@@ -1,12 +1,13 @@
 <?php
 
+use App\Http\Controllers\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BukuController;
-use App\Http\Controllers\User;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PinjamanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/', function () {
 Route::get('home', function(){
     return redirect('/');
 });
+Route::get('buku', [BukuController::class, 'buku'])->name('UserBuku');
 Route::group(['middleware' => 'admin'], function(){
     Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('pinjaman-siswa', [AdminController::class, 'pinjamansiswa'])->name('admin.pinjamansiswa');
@@ -51,4 +53,6 @@ Route::group(['middleware' => 'auth'], function(){
         return view('history');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('Logout');
-});
+    });
+    Route::post('pinjaman/{id}', [PinjamanController::class, 'index'])->name('Pinjaman');
+    Route::get('detail/{id}', [BukuController::class, 'detailview'])->name('DetailView');

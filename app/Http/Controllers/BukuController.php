@@ -81,11 +81,21 @@ class BukuController extends Controller
         $detail = Buku::find($id);
         return response()->json($detail);
     }
+    public function detailview($id)
+    {
+        $detail = Buku::find($id);
+        return view('user.detailbuku', compact('detail'));
+    }
     public function hapus($id)
     {
         $data = Buku::find($id);
         Storage::delete('FotoCoverBuku/'.$data->foto);
         $data->delete();
         return response()->json(['success'=>true]);
+    }
+    public function buku()
+    {
+    $buku = Buku::all();
+        return view('user.halamanjudul', compact('buku'));
     }
 }

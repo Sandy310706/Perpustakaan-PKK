@@ -2,7 +2,7 @@
 @section('title', 'Home')
 @section('landingpage')
     <section>
-        <div class="flex mt-14 flex-col">
+        <div class="flex mt-7 flex-col">
             <div class="w-full flex justify-evenly mt-5">
                 <div class="flex flex-col justify-center items-center w-[50%]">
                     <div class="flex flex-col items-start">
@@ -253,12 +253,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-    <div class="flex justify-center w-full mt-10">
+    <div id="tentangkami" class="flex justify-center w-full mt-10">
         <div class="w-[50%] flex justify-center flex-col items-center">
             <h1 class="flex justify-center text-black text-3xl font-robotoslab">Tentang Kami</h1>
             <div class="mt-5">
@@ -270,7 +268,6 @@
             </div>
         </div>
     </div>
-
     <div class="w-full flex justify-center my-16">
         <div class="w-[80%] h-28 flex bg-blue-200 rounded-xl justify-evenly">
             <div class="flex justify-center items-center w-[20%]">

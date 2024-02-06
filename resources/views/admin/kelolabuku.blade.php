@@ -92,6 +92,17 @@
                 <tbody id="tbody" class="text-sm font-light text-gray-500">
                 </tbody>
             </table>
+            @if ($jumlah == 0)
+                <div class="w-full h-full flex flex-col justify-center items-center">
+                    <img src="{{ asset('img/empty.png')}}" alt="empty" class="w-52">
+                    <span class="mt-2">Tidak ada Buku</span>
+                </div>
+            @else
+            <div class="hidden w-full h-full  flex-col justify-center items-center">
+                <img src="{{ asset('img/empty.png')}}" alt="empty" class="w-52">
+                <span class="mt-2">Tidak ada Buku</span>
+            </div>
+            @endif
         </div>
     </div>
     <script>

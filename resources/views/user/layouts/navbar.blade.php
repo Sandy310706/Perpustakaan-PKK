@@ -4,15 +4,14 @@
         <span class="font-robotoslab">Perpustakaan</span>
     </div>
     <div class="w-1/2 p-4 flex items-center justify-center font-outfit">
-        <a href="" class="mr-10 hover:text-slate-400">Beranda</a>
+        <a href="/" class="mr-10 hover:text-slate-400">Beranda</a>
         @auth
             @if (auth()->user()->role == 'admin')
                 <a href="{{ route('admin.dashboard') }}" class="mr-10 hover:text-slate-400">Dashboard</a>
             @endif
         @endauth
-        <a href="" class="mr-10 hover:text-slate-400">Judul</a>
-        <a href="" class="mr-10 hover:text-slate-400">Penulis</a>
-        <a href="" class="hover:text-slate-400">Tentang Kami</a>
+        <a href="buku" class="mr-10 hover:text-slate-400">Buku</a>
+        <a href="#tentangkami" class="hover:text-slate-400">Tentang Kami</a>
     </div>
     <div class="w-[25%] p-4 flex items-center justify-end">
         <div class="mr-4 font-outfit">
@@ -32,7 +31,6 @@
         <button type="submit" class="p-3 hover:bg-slate-300 rounded-b-md w-full">Logout</button>
     </form>
 </div>
-
 <script>
     function openDropdownMenu()
     {

@@ -1,20 +1,8 @@
 @extends('user.layouts.app')
-@section('title', 'Home CINE')
+@section('title', 'Home')
 @section('landingpage')
     <section>
         <div class="flex mt-14 flex-col">
-            {{-- <div class="w-screen p-4">
-                <div class="w-[40%] h-10 flex mx-auto border border-[#646464] rounded-md animate__animated animate__flash">
-                    <div class="w-[10%] h-full flex justify-center items-center border-r border-[#646464]">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </div>
-                    <div class="w-[90%] h-full flex items-center">
-                        <input type="text" class="w-full ml-4 outline-none placeholder:font-outfit"
-                            placeholder="Masukan Judul">
-                        <button class="px-6 py-1 mr-2 bg-cyan-400 rounded-md text-white font-outfit">Cari</button>
-                    </div>
-                </div>
-            </div> --}}
             <div class="w-full flex justify-evenly mt-5">
                 <div class="flex flex-col justify-center items-center w-[50%]">
                     <div class="flex flex-col items-start">

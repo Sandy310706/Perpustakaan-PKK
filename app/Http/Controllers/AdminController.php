@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buku;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $buku = Buku::count();
+        $tersedia = Buku::where('stok', '>', 0)->count();
+        $tidaktersedia = Buku::where('stok', '=', 0)->count();
+        return view('admin.dashboard', compact('buku', 'tersedia', 'tidaktersedia'));
     }
     public function pinjamansiswa()
     {

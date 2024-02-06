@@ -32,12 +32,13 @@
         </div>
         <div class="ml-[20%] w-[80%] py-4 px-2">
             <nav class="w-full bg-white rounded-md p-4 drop-shadow-xl flex justify-between">
-                <div class="w-1/2">@yield('titleDashboard')</div>
-                <div class="w-1/2 text-end">Selamat Datang, Nama Admin</div>
+                <div class="w-1/2">@yield('titleNav')</div>
+                <div class="w-1/2 text-end">Selamat Datang,  {{ auth()->user()->nama }}</div>
             </nav>
             @yield('dashboard')
             @yield('pinjamansiswa')
             @yield('kelolabuku')
+            @yield('kelolauser')
         </div>
     </div>
 </body>

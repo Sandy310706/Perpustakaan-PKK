@@ -24,6 +24,7 @@
         @yield('detailbuku')
         @yield('halamanjudul')
         @yield('landingpage')
+        @yield('histori')
     </div>
 </body>
 </html>

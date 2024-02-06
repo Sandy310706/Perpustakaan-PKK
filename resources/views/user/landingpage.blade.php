@@ -1,5 +1,5 @@
 @extends('user.layouts.app')
-@section('title', 'Home CINE')
+@section('title', 'Home')
 @section('landingpage')
     <section>
         <div class="flex mt-14 flex-col">
@@ -33,7 +33,7 @@
     <div class="w-full flex h-56 flex-row justify-between mt-32">
         <div class="flex items-start justify-center w-[20%]  ">
             <div
-                class="w-[50%] h-40 p-3 bg-[#0C151D] mx-10 rounded-[10px]  flex flex-col shadow-[rgba(17, 17, 26, 0.1)_0px_1px_0px_rgba(17, 17, 26, 0.1)_0px_8px_24px_rgba(17, 17, 26, 0.1)_0px_16px_48px]">
+                class="w-[50%] h-40 p-3 bg-[#0C151D] mx-10 rounded-[10px]  flex flex-col shadow-2xl">
                 <div class="">
                     <h1 class="ml-2 mt-1 text-2xl text-white font-paythone">22</h1>
                 </div>
@@ -100,7 +100,7 @@
                                     <p>dsds</p>
                                     <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                         <div class=" flex items-center">
-                                            <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                            <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                         </div>
                                         <div class=" flex items-center text-red-700">
                                             <p>Tidak Tersedia</p>
@@ -120,7 +120,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -139,7 +139,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -158,7 +158,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -177,7 +177,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -196,7 +196,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -215,7 +215,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -234,7 +234,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -253,7 +253,7 @@
                                 <p>dsds</p>
                                 <div class="bg-red-200 w-32 flex justify-around rounded-full mt-1">
                                     <div class=" flex items-center">
-                                        <img src="imglanding/2Ellipse 45 (1).svg" alt="">
+                                        <img src="imglanding/Ellipse 45 (1).svg" alt="">
                                     </div>
                                     <div class=" flex items-center text-red-700">
                                         <p>Tidak Tersedia</p>
@@ -262,9 +262,6 @@
                             </div>
                         </div>
                     </div>
-                    
-
-    
                 </div>
                
             </div>
